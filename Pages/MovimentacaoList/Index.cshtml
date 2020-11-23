@@ -1,0 +1,70 @@
+﻿@page
+@model CrudT2S.Pages.MovimentacaoList.IndexModel
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-6">
+        <h2 class="text-info">Lista de Movimentações</h2>
+    </div>
+    <div class="col-3-sm">
+        <a asp-page="Create" class="btn btn-info form-control text-white">Cadsatrar Movimentação</a>
+    </div>
+    <div class="col-3">
+        <a asp-page="Relatorio" class="btn btn-info form-control text-white">Gerar Relatorio</a>
+    </div>
+
+
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+
+            @*checar se existe algum container cadastrado*@
+
+            @if (Model.Movimentacoes.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="Movimentacoes.FirstOrDefault().Navio"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Movimentacoes.FirstOrDefault().TipoMovimentacao">Tipo de Movimentação</label>
+                        </th>
+                        <th>
+                            <label asp-for="Movimentacoes.FirstOrDefault().DataInicio">Data de Início</label>
+                        </th>
+                        <th>
+                            <label asp-for="Movimentacoes.FirstOrDefault().DataFim">Data de Fim</label>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.Movimentacoes)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Navio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.TipoMovimentacao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.DataInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.DataFim)
+                            </td>
+                            <td>
+                                <button asp-page-handler="Delete" asp-route-id="@item.ID" onclick=" return confirm('Tem certeza que quer apagar este registro?')" class="btn btn-danger btn-sm">Apagar</button>
+                                <a asp-page="Edit" asp-route-id="@item.ID" class="btn btn-success btn-sm text-white">Editar</a>
+                            </td>
+                        </tr>
+
+                    }
+                </table>
+            }
+            else
+            {
+                <p>Nenhuma Movimentação cadastrada.</p>
+            }
+        </form>
+    </div>
+</div>

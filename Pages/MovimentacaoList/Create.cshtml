@@ -1,0 +1,61 @@
+﻿@page
+@model CrudT2S.Pages.MovimentacaoList.CreateModel
+
+<br />
+<h2 class="text-info">Adicionar nova Movimentação</h2>
+<br />
+
+<div class="border Movimentacao" style="padding:30px;">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Movimentacao.Navio"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Movimentacao.Navio" class="form-control" />
+            </div>
+            <span asp-validation-for="Movimentacao.Navio" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Movimentacao.TipoMovimentacao">Tipo de Movimentacao</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Movimentacao.TipoMovimentacao" class="form-control" />
+            </div>
+            <span asp-validation-for="Movimentacao.TipoMovimentacao" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Movimentacao.DataInicio">Data de Início</label>
+            </div>
+            <div class="col-6">
+              <input asp-for="Movimentacao.DataInicio" class="form-control" />
+            </div>
+            <span asp-validation-for="Movimentacao.DataInicio" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Movimentacao.DataFim">Data de Fim</label>
+            </div>
+            <div class="col-6">
+               <input asp-for="Movimentacao.DataFim" class="form-control" />
+            </div>
+            <span asp-validation-for="Movimentacao.DataFim" class="text-danger"></span>
+        </div>
+        
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <input type="submit" value="Cadastrar" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-success form-control">Voltar</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

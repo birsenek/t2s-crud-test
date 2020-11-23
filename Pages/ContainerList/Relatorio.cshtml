@@ -1,0 +1,33 @@
+﻿@page
+@model CrudT2S.Pages.ContainerList.RelatorioModel
+
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-6">
+    </div>
+    <div class="col-3 mb-2">
+        <a asp-page="Index" class="btn btn-info form-control text-white">Voltar</a>
+    </div>
+    <div class="col-3 mb-2">
+        <a class="btn btn-info form-control text-white" onclick="window.print()">Imprimir</a>
+    </div>
+    <br />
+    <div class="col-12 border p-3" id="section-to-print">
+
+        <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Número do Container</th>
+                    <th>Tipo</th>
+                    <th>Status</th>
+                    <th>Categoria</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    @section Scripts {
+        <script src="~/js/ContainerList.js"></script>
+    }
+</div>

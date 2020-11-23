@@ -1,0 +1,78 @@
+﻿@page
+@model CrudT2S.Pages.ContainerList.IndexModel
+
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-6">
+        <h2 class="text-info">Lista de Containers</h2>
+    </div>
+    <div class="col-3">
+        <a asp-page="Create" class="btn btn-info form-control text-white">Cadastrar Container</a>
+    </div>
+    <div class="col-3">
+        <a asp-page="Relatorio" class="btn btn-info form-control text-white">Gerar Relatorio</a>
+    </div>
+
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+
+            @*checar se existe algum container cadastrado*@
+
+            @if (Model.Containers.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="Containers.FirstOrDefault().Cliente"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Containers.FirstOrDefault().NumeroContainer">Número do Container</label>
+                        </th>
+                        <th>
+                            <label asp-for="Containers.FirstOrDefault().Tipo"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Containers.FirstOrDefault().Status"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Containers.FirstOrDefault().Categoria"></label>
+                        </th>
+                        <th></th>
+                    </tr>
+                    @foreach (var item in Model.Containers)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Cliente)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.NumeroContainer)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Tipo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Status)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Categoria)
+                            </td>
+                            <td>
+                                <button asp-page-handler="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Apagar</button>
+                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Editar</a>
+                            </td>
+                           
+
+                        </tr>
+
+                    }
+                </table>
+            }
+            else
+            {
+                <p>Nenhum Container cadastrado.</p>
+            }
+        </form>
+    </div>
+
+</div>

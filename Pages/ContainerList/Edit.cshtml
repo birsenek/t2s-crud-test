@@ -1,0 +1,70 @@
+﻿@page
+@model CrudT2S.Pages.ContainerList.EditModel
+
+<br />
+<h2 class="text-info">Atualizar dados do Container</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        <input type="hidden" asp-for="Container.Id" />
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Container.Cliente"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Container.Cliente" class="form-control" />
+            </div>
+            <span asp-validation-for="Container.Cliente" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Container.NumeroContainer">Número do Container</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Container.NumeroContainer" class="form-control" />
+            </div>
+            <span asp-validation-for="Container.NumeroContainer" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Container.Tipo"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Container.Tipo" class="form-control" />
+            </div>
+            <span asp-validation-for="Container.Tipo" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Container.Status"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Container.Status" class="form-control" />
+            </div>
+            <span asp-validation-for="Container.Status" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Container.Categoria"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Container.Categoria" class="form-control" />
+            </div>
+            <span asp-validation-for="Container.Categoria" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <input type="submit" value="Atualizar" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-success form-control">Voltar</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
